@@ -42,35 +42,38 @@ class DBHelper(context: Context) :
         db.close()
         return success
     }
-    fun deleteEmployee(contact: Contact):Int{
+
+    fun deleteEmployee(contact: Contact): Int {
         val db = this.writableDatabase
         val contentValues = ContentValues()
         contentValues.put(ID, contact.id)
 
-        val success = db.delete(TABLE_CONTACTS,"id="+contact.id,null)
+        val success = db.delete(TABLE_CONTACTS, "id=" + contact.id, null)
         db.close()
         return success
     }
-    fun updateEmployee(contact: Contact):Int{
+
+    fun updateEmployee(contact: Contact): Int {
         val db = this.writableDatabase
         val contentValues = ContentValues()
         contentValues.put(ID, contact.id)
         contentValues.put(NAME, contact.name)
-        contentValues.put(NUMBER,contact.phone_number )
+        contentValues.put(NUMBER, contact.phone_number)
 
-        val success = db.update(TABLE_CONTACTS, contentValues,"id="+contact.id,null)
+        val success = db.update(TABLE_CONTACTS, contentValues, "id=" + contact.id, null)
         db.close()
         return success
     }
+
     @SuppressLint("Range")
-    fun viewContact():List<Contact>{
-        val contactList:ArrayList<Contact> = ArrayList<Contact>()
+    fun viewContact(): List<Contact> {
+        val contactList: ArrayList<Contact> = ArrayList<Contact>()
         val selectQuery = "SELECT  * FROM $TABLE_CONTACTS"
         val db = this.readableDatabase
         var cursor: Cursor? = null
-        try{
+        try {
             cursor = db.rawQuery(selectQuery, null)
-        }catch (e: SQLiteException) {
+        } catch (e: SQLiteException) {
             db.execSQL(selectQuery)
             return ArrayList()
         }
@@ -82,10 +85,10 @@ class DBHelper(context: Context) :
                 contactId = cursor.getInt(cursor.getColumnIndex("id"))
                 contactName = cursor.getString(cursor.getColumnIndex("name"))
                 contactNumber = cursor.getString(cursor.getColumnIndex("email"))
-                val emp= Contact(id = contactId, name = contactName, phone_number = contactNumber)
+                val emp = Contact(id = contactId, name = contactName, phone_number = contactNumber)
                 contactList.add(emp)
             } while (cursor.moveToNext())
         }
         return contactList
-}
     }
+}

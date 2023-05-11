@@ -33,16 +33,16 @@
             android:id="@+id/more_contacts"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="10dp"
+            android:layout_marginStart="20dp"
             android:src="@drawable/more_contacts" />
     </androidx.appcompat.widget.Toolbar>
 
     <ImageView
-        android:visibility="visible"
         android:id="@+id/no_contacts_img"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:src="@drawable/no_contacts"
+        android:visibility="gone"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -50,14 +50,16 @@
         app:layout_constraintVertical_bias="0.443" />
 
     <androidx.recyclerview.widget.RecyclerView
-        android:layout_width="0dp"
-        android:visibility="gone"
         android:id="@+id/contacts_rv"
+        android:layout_width="0dp"
         android:layout_height="0dp"
+        android:visibility="visible"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/toolbar" />
+        app:layout_constraintTop_toBottomOf="@+id/toolbar"
+        app:layout_constraintVertical_bias="1.0" />
 
     <com.google.android.material.button.MaterialButton
         android:id="@+id/add_contact_btn"
@@ -69,6 +71,7 @@
         android:text="+"
         android:textSize="25sp"
         app:cornerRadius="30dp"
+
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
 
