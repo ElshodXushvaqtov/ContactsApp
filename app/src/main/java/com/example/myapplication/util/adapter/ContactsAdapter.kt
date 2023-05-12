@@ -11,6 +11,8 @@ import com.example.myapplication.util.data.ContactsData
 class ContactsAdapter(var contacts: MutableList<ContactsData>) :
     RecyclerView.Adapter<ContactsAdapter.MyHolder>() {
 
+    var onItemClick: ((ContactsData) -> Unit)? = null
+
     class MyHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         var contact_name = itemView.findViewById<TextView>(R.id.contact_full_name)
         var contact_phone = itemView.findViewById<TextView>(R.id.contact_phone_number)
@@ -28,8 +30,13 @@ class ContactsAdapter(var contacts: MutableList<ContactsData>) :
 
     override fun onBindViewHolder(holder: MyHolder, position: Int) {
         var index = contacts[position]
-        index.contact_name=holder.contact_name.toString()
-        index.contact_phone=holder.contact_phone.toString()
+        index.contact_name = holder.contact_name.toString()
+        index.contact_phone = holder.contact_phone.toString()
+        holder.itemView.setOnClickListener {
+            onItemClick?.invoke(index)
+        }
     }
-
+//    interface onItemClickListener{
+//        fun onItemClick(position: Int)
+//    }
 }

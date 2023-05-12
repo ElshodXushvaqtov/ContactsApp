@@ -13,6 +13,9 @@
         <action
             android:id="@+id/action_allContactsFragment_to_addContactFragment"
             app:destination="@id/addContactFragment" />
+        <action
+            android:id="@+id/action_allContactsFragment_to_contactInfoFragment"
+            app:destination="@id/contactInfoFragment" />
     </fragment>
     <fragment
         android:id="@+id/addContactFragment"
@@ -22,5 +25,13 @@
         <action
             android:id="@+id/action_addContactFragment_to_allContactsFragment"
             app:destination="@id/allContactsFragment" />
+        <action
+            android:id="@+id/action_addContactFragment_to_contactInfoFragment"
+            app:destination="@id/contactInfoFragment" />
     </fragment>
+    <fragment
+        android:id="@+id/contactInfoFragment"
+        android:name="com.example.myapplication.ContactInfoFragment"
+        android:label="fragment_contact_info"
+        tools:layout="@layout/fragment_contact_info" />
 </navigation>

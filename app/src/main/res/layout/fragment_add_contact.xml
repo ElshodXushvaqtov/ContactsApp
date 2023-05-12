@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:id="@+id/container_allContacts"
     tools:context=".util.AddContactFragment">
 
     <androidx.appcompat.widget.Toolbar
@@ -97,6 +98,7 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:digits="+0123456789"
+            android:hint="+998 __ ___ __ __"
             android:inputType="phone" />
     </com.google.android.material.textfield.TextInputLayout>
 
