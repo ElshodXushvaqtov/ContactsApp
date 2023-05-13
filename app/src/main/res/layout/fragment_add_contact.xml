@@ -15,33 +15,16 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
-        <ImageView
-            android:id="@+id/back_img"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:src="@drawable/back_img"
-            app:layout_constraintStart_toStartOf="@+id/toolbar2"
-            tools:layout_editor_absoluteY="196dp" />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="40dp"
-            android:text="Add"
+            android:layout_marginStart="20dp"
+            android:text="Add Contact"
             android:textColor="@color/black"
             android:textSize="25sp"
             android:textStyle="bold" />
     </androidx.appcompat.widget.Toolbar>
-
-    <ImageView
-        android:id="@+id/add_contact"
-        android:layout_width="37dp"
-        android:layout_height="29dp"
-        android:layout_marginTop="28dp"
-        android:layout_marginEnd="24dp"
-        android:src="@drawable/add_img"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/toolbar2" />
 
     <TextView
         android:id="@+id/contact_name"
@@ -58,8 +41,8 @@
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/textInputLayout"
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-        android:layout_width="384dp"
-        android:layout_height="57dp"
+        android:layout_width="290dp"
+        android:layout_height="54dp"
         android:layout_marginTop="8dp"
         android:hint="Enter name"
         app:layout_constraintEnd_toEndOf="parent"
@@ -69,6 +52,7 @@
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/add_name_input"
             android:layout_width="match_parent"
+            android:textSize="12sp"
             android:layout_height="match_parent" />
     </com.google.android.material.textfield.TextInputLayout>
 
@@ -86,8 +70,8 @@
 
     <com.google.android.material.textfield.TextInputLayout
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-        android:layout_width="384dp"
-        android:layout_height="57dp"
+        android:layout_width="297dp"
+        android:layout_height="54dp"
         android:layout_marginTop="8dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -98,6 +82,7 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:digits="+0123456789"
+            android:textSize="12sp"
             android:hint="+998 __ ___ __ __"
             android:inputType="phone" />
     </com.google.android.material.textfield.TextInputLayout>

@@ -1,16 +1,21 @@
 package com.example.myapplication
 
+import android.content.Intent
+import android.net.Uri
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.navigation.fragment.findNavController
+import com.example.myapplication.databinding.FragmentContactInfoBinding
+import com.example.myapplication.util.AllContactsFragment
+import com.example.myapplication.util.module.Contact
 
 private const val ARG_PARAM1 = "param1"
 private const val ARG_PARAM2 = "param2"
 
 class ContactInfoFragment : Fragment() {
-    // TODO: Rename and change types of parameters
     private var param1: String? = null
     private var param2: String? = null
 
@@ -25,8 +30,21 @@ class ContactInfoFragment : Fragment() {
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
-        return inflater.inflate(R.layout.fragment_contact_info, container, false)
+    ): View {
+        val binding=FragmentContactInfoBinding.inflate(layoutInflater,container,false)
+        binding.name.text=param1
+        binding.phoneNum.text=param2
+        binding.call.setOnClickListener {
+                        if (binding.phoneNum.text!="") {
+                val callIntent = Intent(Intent.ACTION_CALL)
+                callIntent.data = Uri.parse("tel:${binding.phoneNum}")
+                startActivity(callIntent)
+            }
+        }
+        binding.back.setOnClickListener {
+            parentFragmentManager.beginTransaction().replace(R.id.fragmentContainerView,AllContactsFragment()).commit()
+        }
+        return binding.root
     }
 
     companion object {
