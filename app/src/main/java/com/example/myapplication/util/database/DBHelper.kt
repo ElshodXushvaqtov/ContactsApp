@@ -23,7 +23,7 @@ class DBHelper(context: Context) :
 
     override fun onCreate(db: SQLiteDatabase?) {
         val CREATE_CONTACTS_TABLE = ("CREATE TABLE " + TABLE_CONTACTS + "("
-                + ID + " INTEGER PRIMARY KEY AUTOINCREMENT," + NAME + " TEXT,"
+                + ID + " integer primary key autoincrement," + NAME + " TEXT,"
                 + NUMBER + " TEXT" + ")")
         db?.execSQL(CREATE_CONTACTS_TABLE)
     }

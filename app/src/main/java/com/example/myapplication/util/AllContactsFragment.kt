@@ -82,7 +82,7 @@ class AllContactsFragment : Fragment() {
         addDialog.setPositiveButton("Add") { dialog, _ ->
             val name = binding2.addNameInput.text.toString()
             val phone_number = binding2.addPhoneNumberInput.text.toString()
-            db_helper.addContact(Contact(name, phone_number, 0))
+            db_helper.addContact(Contact(name, phone_number))
             contacts.add(ContactsData(name, phone_number))
             binding.contactsRv.adapter?.notifyDataSetChanged()
             Log.d("AAA", "$name and $phone_number")
